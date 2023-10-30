@@ -1,0 +1,83 @@
+<div class="main-container">
+  <div class="content-group thermometer-section">
+    <!-- Thermometer Section -->
+    <div class="caption heading">Wildly Important Goal!</div>
+    <div class="goal-text">Markmið: 10.000.000 Kr</div>
+    <div class="container">
+      <input type="number" id="additional-savings" placeholder="Bæta við sparnaði?">
+      <button id="update-button">+</button>
+      <div class="thermometer">
+        <div class="mercury" id="mercury"></div>
+      </div>
+      <div class="counter">Sparað núna: <span id="savings-amount">0</span> Kr</div>
+      <div id="message"></div>
+
+      <!-- Thermometer Section -->
+      <div class="goal-text">Markmið: 10.000.000 Kr</div>
+      <div class="container">
+        <!-- ... (existing content) -->
+        <canvas id="savings-chart" width="400" height="200"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="content-group goals-section">
+    <!-- Goals Section -->
+    <div class="caption heading">Markmið hópsins</div>
+
+    <div class="goalBold">Auka skilvirkni verkefna - Tækni & hönnun.</div>
+
+    <div class="goal">Lykilathöfn 1</div>
+    <div class="goal-description">Finna og endurskoða 3 verkefni sem skila litlu/engu eða tapi með það að markmiði að ná meira út úr þeim.</div>
+
+    <div id="first-goal-progress"></div>
+
+    <div class="goal">Lykilathöfn 2</div>
+    <div class="goal-description">Innleiða 5 x úrbætur á tímabókunarkerfi tækni og hönnunar sem leiða til frekari skilvirkni.</div>
+
+    <div id="second-goal-progress"></div>
+  </div>
+
+  <!-- New Section -->
+  <div class="content-group new-section">
+    <div class="caption heading">Meðlimir hópsins</div>
+    <div class="container">
+      <div class="nameBold">Kristinn Loftur Einarsson</div>
+      <div class="name">Eden B. Hróa</div>
+      <div class="name">Guðmundur Geir Ludwigsson </div>
+      <div class="name">Helena Björk Eiríksdóttir</div>
+      <div class="name">Helgi þór Gestsson</div>
+      <div class="name">Hlynur Kristjánsson</div>
+      <div class="name">Jóhann Þór Guðjónsson</div>
+      <div class="name">Kjartan Arnar Guðmundsson</div>
+      <div class="name">Þórir Guðmundsson</div>
+
+      <img src="data:image/png;base64,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" alt="ÖMÍlogo">
+
+    </div>
+  </div>
+
+  <div class="content-group time-section">
+    <!-- Time Section -->
+    <div class="caption heading">Tími nýttur í verkið</div>
+    <div class="goal-text">Markmið: 128 tímar</div>
+    <div class="container">
+      <input type="number" id="additional-time" placeholder="Bæta við tíma">
+      <button id="update-button2">+</button>
+      <div class="thermometer">
+        <div class="mercury2" id="mercury2"></div>
+      </div>
+      <div class="counter">Tími núna: <span id="time-amount">0</span> tímar</div>
+      <div id="message2"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Time Section -->
+
+    <div class="goal-text">Markmið: 128 tímar</div>
+    <div class="container">
+      <!-- ... (existing content) -->
+      <canvas id="time-chart" width="400" height="200"></canvas>
+    </div>
